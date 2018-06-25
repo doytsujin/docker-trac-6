@@ -1,0 +1,10 @@
+version: '2'
+services:
+  trac:
+    image: opxhub/trac
+    build: .
+    restart: always
+    ports:
+      - "80:8000"
+    volumes:
+      - ./data/:/trac/

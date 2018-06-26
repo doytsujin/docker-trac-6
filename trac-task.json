@@ -1,0 +1,33 @@
+{
+  "family": "trac",
+  "containerDefinitions": [
+    {
+      "name": "trac",
+      "image": "opxhub/trac",
+      "cpu": 256,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 80
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "efs",
+          "containerPath": "/trac",
+          "readOnly": false
+        }
+      ],
+      "essential": true
+    }
+  ],
+  "volumes": [
+    {
+      "name": "efs",
+      "host": {
+        "sourcePath": "/mnt/efs/trac"
+      }
+    }
+  ]
+}
